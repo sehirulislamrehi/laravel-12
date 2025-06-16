@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Traits\Modules;
 
@@ -8,7 +9,15 @@ trait ApiResponseTrait
 {
 
 
-     protected function response($status, $data = [], $message, $tableName = null, $code = 200, $locationReload = null, $url = null): JsonResponse
+     protected function response(
+          string $status, 
+          array $data = [], 
+          string $message = '', 
+          string $tableName = '', 
+          int $code = 200, 
+          bool $locationReload = false, 
+          string $url = ''
+     ): JsonResponse
      {
           return response()->json(
                [
