@@ -79,7 +79,12 @@
                             </div>
                             <ul class="profile-dropdown onhover-show-div">
                                 <li><a href="user-profile.html"><i data-feather="user"></i><span>My Profile</span></a></li>
-                                <li><a class="btn btn-pill btn-outline-primary btn-sm" href="">Log Out</a></li>
+                                <li>
+                                    <form action="{{ route('admin.do.logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-pill btn-outline-primary btn-sm">Log Out</button >
+                                    </form>
+                                </li>
                             </ul>
                         </li>
                     </ul>

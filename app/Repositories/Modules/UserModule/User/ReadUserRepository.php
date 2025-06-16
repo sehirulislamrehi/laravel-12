@@ -7,7 +7,8 @@ use App\Models\User;
 
 class ReadUserRepository implements ReadUserInterface{
 
-     public function getUserByEmail(string $email){
+     public function getUserByEmail(string $email): ?User
+     {
           return User::where('email', $email)->first();
      }
 }

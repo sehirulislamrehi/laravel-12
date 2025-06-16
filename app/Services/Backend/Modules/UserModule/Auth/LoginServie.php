@@ -2,8 +2,9 @@
 
 namespace App\Services\Backend\Modules\UserModule\Auth;
 
+use App\Http\Requests\Backend\UserModule\Auth\LoginRequest;
 use App\Interfaces\Modules\UserModule\User\ReadUserInterface;
-use Illuminate\Database\Eloquent\Collection;
+use App\Models\User;
 
 class LoginServie
 {
@@ -12,12 +13,12 @@ class LoginServie
           protected ReadUserInterface $readUserRepository
      ) {}
 
-     public function getUserByEmail($email)
+     public function getUserByEmail(string $email): ?User
      {
           return $this->readUserRepository->getUserByEmail($email);
      }
 
-     public function doLogin($request): bool
+     public function doLogin(LoginRequest $request): bool
      {
           return auth('web')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')], true);
      }

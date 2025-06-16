@@ -2,9 +2,9 @@
 
 namespace App\Interfaces\Modules\UserModule\User;
 
-use Illuminate\Database\Eloquent\Builder;
+use App\Models\User;
 
 interface ReadUserInterface
 {
-     public function getUserByEmail(string $email);
+     public function getUserByEmail(string $email): ?User;
 }

@@ -41,8 +41,8 @@
                          <div>
                               <div>
                                    <a class="logo" href="">
-                                        <img class="img-fluid for-dark" src="{{ asset('backend/images/logo/logo.png') }} " alt="looginpage">
-                                        <img class="img-fluid for-light" src="{{ asset('backend/images/logo/logo_dark.png') }} " alt="looginpage">
+                                        <!-- <img class="img-fluid for-dark" src="{{ asset('backend/images/logo/logo.png') }} " alt="looginpage">
+                                        <img class="img-fluid for-light" src="{{ asset('backend/images/logo/logo_dark.png') }} " alt="looginpage"> -->
                                    </a>
                               </div>
                               <div class="login-main">

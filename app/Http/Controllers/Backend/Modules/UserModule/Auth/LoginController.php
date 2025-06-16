@@ -8,9 +8,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\UserModule\Auth\LoginRequest;
 use App\Services\Backend\Modules\UserModule\Auth\LoginServie;
 use App\Traits\Modules\ApiResponseTrait;
-use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
 
 class LoginController extends Controller
 {
@@ -29,7 +31,7 @@ class LoginController extends Controller
         
     }
 
-    public function loginPage()
+    public function loginPage(): View|RedirectResponse
     {
         try{
             if (Auth::check()) {
@@ -43,7 +45,7 @@ class LoginController extends Controller
     }
 
 
-    public function doLogin(LoginRequest $request)
+    public function doLogin(LoginRequest $request): JsonResponse
     {
         try{
 
@@ -86,13 +88,25 @@ class LoginController extends Controller
                 code: 200
             );
         }
-        catch (\Exception $e) {
+        catch (Exception $e) {
             return $this->response(
                 status: 'error',
                 data: [],
                 message: $e->getMessage(),
                 code: 500
             );
+        }
+    }
+
+    public function doLogout(): View|RedirectResponse
+    {
+        try{
+            Auth::logout();
+            return redirect()->route('admin.login.page');
+        }
+        catch (Exception $e) {
+            return view('errors.500', ['message' => $e->getMessage()]);
+
         }
     }
 }
