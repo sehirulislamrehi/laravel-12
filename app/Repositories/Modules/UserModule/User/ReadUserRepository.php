@@ -8,6 +8,12 @@ use App\Models\User;
 
 class ReadUserRepository implements ReadUserInterface{
 
+     /**
+      * Get user by email.
+      *
+      * @param string $email
+      * @return User|null
+      */
      public function getUserByEmail(string $email): ?User
      {
           return User::where('email', $email)->first();

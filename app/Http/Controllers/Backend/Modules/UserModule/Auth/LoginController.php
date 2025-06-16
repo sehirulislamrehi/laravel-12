@@ -30,6 +30,11 @@ class LoginController extends Controller
         
     }
 
+    /**
+     * Show the login page.
+     *
+     * @return View|RedirectResponse
+     */
     public function loginPage(): View|RedirectResponse
     {
         try{
@@ -44,6 +49,12 @@ class LoginController extends Controller
     }
 
 
+    /**
+     * Handle the login request.
+     *
+     * @param LoginRequest $request
+     * @return JsonResponse
+     */
     public function doLogin(LoginRequest $request): JsonResponse
     {
         try{
@@ -97,6 +108,11 @@ class LoginController extends Controller
         }
     }
 
+    /**
+     * Handle the logout request.
+     *
+     * @return View|RedirectResponse
+     */
     public function doLogout(): View|RedirectResponse
     {
         try{

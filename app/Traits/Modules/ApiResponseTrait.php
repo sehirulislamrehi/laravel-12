@@ -7,8 +7,18 @@ use Illuminate\Http\JsonResponse;
 
 trait ApiResponseTrait
 {
-
-
+     /**
+      * Generate a JSON response.
+      *
+      * @param string $status
+      * @param array $data
+      * @param string $message
+      * @param string $tableName
+      * @param int $code
+      * @param bool $locationReload
+      * @param string $url
+      * @return JsonResponse
+      */
      protected function response(
           string $status, 
           array $data = [], 
