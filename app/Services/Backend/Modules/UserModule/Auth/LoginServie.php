@@ -5,7 +5,7 @@ namespace App\Services\Backend\Modules\UserModule\Auth;
 
 use App\Http\Requests\Backend\UserModule\Auth\LoginRequest;
 use App\Interfaces\Modules\UserModule\User\ReadUserInterface;
-use App\Models\User;
+use App\Models\UserModule\User;
 
 class LoginServie
 {

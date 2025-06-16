@@ -1,6 +1,7 @@
 <?php
 
 use App\Providers\Modules\UserModule\UserModuleServiceProvider;
+use App\Providers\ViewServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -140,7 +141,8 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
-        UserModuleServiceProvider::class
+        UserModuleServiceProvider::class,
+        ViewServiceProvider::class,
     ])->toArray(),
 
     /*

@@ -66,7 +66,9 @@ function successResponseProcess(response) {
      }
 
      if(response.locationReload) {
-          window.location.href = response.url;
+          setTimeout(function () {
+               window.location.href = response.url;
+          }, 1500);
      }
 }
 

@@ -21,7 +21,7 @@
      <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/style.css') }}">
      <link id="color" rel="stylesheet" href="{{ asset('backend/css/color-1.css') }}" media="screen">
      <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/responsive.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/vendors/sweetalert2.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/vendors/sweetalert2.css') }}">
 </head>
 
 <body>

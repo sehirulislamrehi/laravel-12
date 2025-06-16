@@ -44412,7 +44412,7 @@ table.table-bordered thead tr th p {
   display: none;
 }
 .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li.sidebar-list {
-  padding: 0px 18px;
+  padding: 5px 18px;
 }
 .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li.sidebar-list .badge {
   position: absolute;
@@ -44616,6 +44616,7 @@ table.table-bordered thead tr th p {
 }
 .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-link {
   display: block;
+  cursor: pointer;
 }
 .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-link.active {
   position: relative;
