@@ -37,16 +37,17 @@
                 @if(can($module->key))
                 <li class="sidebar-list">
                     <i class="fa fa-thumb-tack"> </i>
-                    <a class="sidebar-link sidebar-title" @if ($module->route != null) href="{{ $module->route }}" @endif >
+                    <a class="sidebar-link sidebar-title" @if ($module->route != null) href="{{ route($module->route) }}" @endif >
                         <i class="fa fa-users"></i>
                         <span>{{ $module->name }}</span>
                     </a>
 
                     @if ($module->route == null)
-                    <ul class="sidebar-submenu">
+                    <ul class="sidebar-submenu" @if( in_array(Route::currentRouteName(), $module->subModule->pluck("route")->toArray()) ) style="display: block;" @else style="display: none" @endif>
+                        
                         @foreach($module->subModule->sortBy('position', false) as $subModule)
                         @if(can($module->key))
-                        <li><a href="index.html">{{ $subModule->name }}</a></li>
+                        <li><a href="{{ route($subModule->route) }}">{{ $subModule->name }} </a></li>
                         @endif
                         @endforeach
                     </ul>

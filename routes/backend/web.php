@@ -8,5 +8,11 @@ Route::post('do/login', [LoginController::class, 'doLogin'])->name('admin.do.log
 Route::post('do/logout', [LoginController::class, 'doLogout'])->name('admin.do.logout');
 
 Route::middleware('admin.auth')->prefix("admin")->name('admin.')->group(function () {
-     require_once "dashboard/dashboard.php";
+     require_once "modules/dashboard_module/dashboard.php";
+
+     //user module
+     require_once "modules/user_module/user.php";
+     require_once "modules/user_module/role.php";
+     //user module end
+
 });

@@ -44629,9 +44629,9 @@ table.table-bordered thead tr th p {
   visibility: visible;
 }
 .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-link.active ~ .sidebar-submenu::before {
-  height: calc(100% - 8px);
-  -webkit-transition: height 0.5s;
-  transition: height 0.5s;
+  /* height: calc(100% - 8px); */
+  /* -webkit-transition: height 0.5s; */
+  /* transition: height 0.5s; */
 }
 .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-link.active .according-menu i {
   color: #fff;

@@ -21,7 +21,7 @@
 <div class="customizer-contain">
      <div class="tab-content" id="c-pills-tabContent">
           <div class="customizer-header">
-               <i class="icofont-close icon-close">x</i>
+               <i class="icon-close fa fa-times"></i>
                <span class="f-20 f-w-600 txt-dark">Unlocking Creativity</span>
                <p class="mb-0">
                     Try It Real Time <i class="fa fa-thumbs-o-up txt-primary"></i>
