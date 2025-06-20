@@ -26,18 +26,7 @@ class UserSeeder extends Seeder
                 "is_active" => true,
                 "created_at" => Carbon::now(),
                 "updated_at" => Carbon::now()
-            ],
-            [
-                "id" => 2,
-                "name" => "Super Admin",
-                "email" => "superadmin1@gmail.com",
-                "phone" => "12345678901",
-                "password" => Hash::make("123456"),
-                "is_super_admin" => true,
-                "is_active" => true,
-                "created_at" => Carbon::now(),
-                "updated_at" => Carbon::now()
-            ],
+            ]
         ]);
     }
 }

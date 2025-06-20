@@ -9,7 +9,7 @@
      <div class="page-title">
           <div class="row">
                <div class="col-6">
-                    <h5>User Management</h5>
+                    <h5>Role Management</h5>
                </div>
                <div class="col-6">
                     <ol class="breadcrumb">
@@ -19,7 +19,7 @@
                               </a>
                          </li>
                          <li class="breadcrumb-item active">User Module</li>
-                         <li class="breadcrumb-item">User</li>
+                         <li class="breadcrumb-item">Role</li>
                     </ol>
                </div>
           </div>
@@ -31,10 +31,10 @@
           <div class="col-sm-12">
                <div class="card">
                     <div class="card-header pb-0 card-no-border">
-                         @if(can("manage_role"))
+                         @if(can("role_index"))
                          <div class="row">
                               <div class="col-12 text-right">
-                                   <button type="button" data-content="{{ route('admin.user-module.user.create.modal') }}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                                   <button type="button" data-content="{{ route('admin.user-module.role.create.modal') }}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#extraLargeModal">
                                         Create
                                    </button>
                               </div>
@@ -48,8 +48,6 @@
                                         <tr>
                                              <th>#</th>
                                              <th>Name</th>
-                                             <th>Email</th>
-                                             <th>Phone</th>
                                              <th>Is Active</th>
                                              <th>Action</th>
                                         </tr>
@@ -78,7 +76,7 @@
                serverSide: true,
                pagination: 10,
                ajax: {
-                    url: "{{ route('admin.user-module.user.data') }}",
+                    url: "{{ route('admin.user-module.role.data') }}",
                     data: function(data) {
                          // data.business_unit_id = $('#search_business_unit_id').val();
                          // data.service_center_id = $('#search_service_center_id').val();
@@ -109,19 +107,6 @@
                          orderable: false,
                          searchable: true,
 
-                    },
-                    {
-                         data: 'email',
-                         name: 'email',
-                         orderable: false,
-                         searchable: true,
-
-                    },
-                    {
-                         data: 'phone',
-                         name: 'phone',
-                         orderable: false,
-                         searchable: true,
                     },
                     {
                          name: 'is_active',

@@ -18,7 +18,6 @@
     <div class="card p-5">
         <div class="card-body">
             <div class="mb-5 text-center">
-                <img class="error-icon" src="{{asset('backend/images/icon/500.png')}}" alt="">
                 <h1 class="error-header">404 | Page Not Found</h1>
             </div>
             <p class="card-text text-danger text-center font-weight-bold">{{ $message ?? ''}}</p>

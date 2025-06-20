@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\UserModule\Module;
+use App\Services\Backend\Modules\UserModule\Module\ModuleService;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,10 +25,8 @@ class ViewServiceProvider extends ServiceProvider
         View::composer('backend.includes.left_sidebar', function ($view) {
             $cacheKey = "sidebarModules";
             $modules = cache()->rememberForever($cacheKey, function () {
-                return Module::where('left_menu_visibility', true)
-                    ->with("subModule")
-                    ->orderBy('position', 'asc')
-                    ->get();
+                $moduleService = app(ModuleService::class);
+                return $moduleService->getAllModuleForLeftSideBar();
             });
 
             $view->with('sidebarModules', $modules);

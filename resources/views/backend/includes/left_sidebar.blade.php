@@ -26,7 +26,11 @@
                 </li>
                 <li class="sidebar-list">
                     <i class="fa fa-thumb-tack"> </i>
-                    <a href="{{ route('admin.dashboard.index') }}" style="display: block;">
+                    <a href="{{ route('admin.dashboard.index') }}" 
+                    @if( Route::currentRouteName() === "admin.dashboard.index" ) 
+                        style="background-color: rgba(255, 255, 255, 0.2); border-radius: 30px; display: block;" 
+                    @endif
+                    >
                         <i class="fa fa-tachometer" style="color: white;"></i>
                         <span>Dashboard </span>
                     </a>
@@ -37,17 +41,27 @@
                 @if(can($module->key))
                 <li class="sidebar-list">
                     <i class="fa fa-thumb-tack"> </i>
-                    <a class="sidebar-link sidebar-title" @if ($module->route != null) href="{{ route($module->route) }}" @endif >
+                    <a class="sidebar-link sidebar-title" @if ($module->route != null) href="{{ route($module->route) }}" @endif
+                    @if( in_array(Route::currentRouteName(), $module->subModule->pluck("route")->toArray()) ) 
+                            style="background-color: rgba(255, 255, 255, 0.2); border-radius: 30px;" 
+                    @endif    
+                    >
                         <i class="fa fa-users"></i>
                         <span>{{ $module->name }}</span>
                     </a>
 
                     @if ($module->route == null)
-                    <ul class="sidebar-submenu" @if( in_array(Route::currentRouteName(), $module->subModule->pluck("route")->toArray()) ) style="display: block;" @else style="display: none" @endif>
+                    <ul class="sidebar-submenu" 
+                        @if( in_array(Route::currentRouteName(), $module->subModule->pluck("route")->toArray()) ) 
+                            style="display: block;" 
+                        @else 
+                            style="display: none;" 
+                        @endif
+                    >
                         
                         @foreach($module->subModule->sortBy('position', false) as $subModule)
                         @if(can($module->key))
-                        <li><a href="{{ route($subModule->route) }}">{{ $subModule->name }} </a></li>
+                        <li><a href="{{ route($subModule->route) }}" @if(Route::currentRouteName() == $subModule->route) style="color: white" @endif >{{ $subModule->name }} </a></li>
                         @endif
                         @endforeach
                     </ul>

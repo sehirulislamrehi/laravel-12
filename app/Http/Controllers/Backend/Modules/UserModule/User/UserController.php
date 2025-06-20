@@ -16,14 +16,24 @@ class UserController extends Controller
 
     use ApiResponseTrait;
 
+    /**
+     * UserController constructor.
+     *
+     * @param UserService $userService
+     * @param UserDatatableService $userDatatableService
+     */
     public function __construct(
         protected UserService $userService,
         protected UserDatatableService $userDatatableService
     )
     {
-        // You can add middleware or other initializations here if needed
     }
 
+    /**
+     * Display the user index view.
+     *
+     * @return View
+     */
     public function index(): View
     {
         try {
@@ -35,12 +45,56 @@ class UserController extends Controller
         }
     }
 
-
+    /**
+     * Get user data for the admin data table.
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function data(Request $request): JsonResponse
     {
         try {
             $data = $this->userService->getAllUserForAdminDataTable($request);
             return $this->userDatatableService->makeTable($data);
+        } catch (Exception $e) {
+            return $this->response(
+                status: 'error',
+                data: [],
+                message: $e->getMessage(),
+                code: 500
+            );
+        }
+    }
+
+
+    /**
+     * Show the modal for creating a new user.
+     *
+     * @return View
+     */
+    public function createModal(): View
+    {
+        try {
+            return view('backend.modules.user_module.user.modals.create');
+        } 
+        catch (Exception $e) {
+            return view('errors.500', [
+                'message' => $e->getMessage()
+            ]);
+        }
+    }   
+
+
+    public function create(Request $request): JsonResponse
+    {
+        try {
+            $this->userService->createUser($request);
+            return $this->response(
+                status: 'success',
+                data: [],
+                message: 'User created successfully.',
+                code: 200
+            );
         } catch (Exception $e) {
             return $this->response(
                 status: 'error',

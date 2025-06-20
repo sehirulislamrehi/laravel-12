@@ -155,7 +155,8 @@
     addEventListener("resize", (event) => {
       horizontalMenu();
     });
-  } else if ($("#pageWrapper").hasClass("compact-sidebar")) {
+  } 
+  else if ($("#pageWrapper").hasClass("compact-sidebar")) {
     var contentwidth = $(window).width();
     if (contentwidth > 992) {
       $('<div class="bg-overlay1"></div>').appendTo($("body"));
@@ -212,6 +213,7 @@
     });
     $(".submenu-content").hide();
   }
+
 
   // toggle sidebar
   $nav = $(".sidebar-wrapper");

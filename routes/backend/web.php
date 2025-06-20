@@ -11,8 +11,10 @@ Route::middleware('admin.auth')->prefix("admin")->name('admin.')->group(function
      require_once "modules/dashboard_module/dashboard.php";
 
      //user module
-     require_once "modules/user_module/user.php";
-     require_once "modules/user_module/role.php";
+     Route::prefix('user-module')->name('user-module.')->group(function () {
+          require_once "modules/user_module/user.php";
+          require_once "modules/user_module/role.php";
+     });
      //user module end
 
 });

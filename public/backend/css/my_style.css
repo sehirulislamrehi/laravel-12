@@ -2,8 +2,8 @@
      color: white;
 }
 
-p,li,a,button,span,strong,td,th{
-     font-size: 12px!important;
+p,li,a,button,span,strong,td,th, label{
+     font-size: 11px!important;
 }
 
 table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td{
@@ -68,4 +68,13 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
     color: white;
     font-weight: 600;
     text-shadow: none;
+}
+.form-group{
+    margin-bottom: 15px;
+}
+.form-control{
+    font-size: 12px;
+}
+button{
+    border-radius: 30px!important;
 }

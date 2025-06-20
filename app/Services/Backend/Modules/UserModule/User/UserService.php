@@ -15,9 +15,19 @@ class UserService{
          // You can add any initialization code here if needed
      }
 
+     /**
+      * Get user by email.
+      *
+      * @param string $email
+      * @return User|null
+      */
      public function getAllUserForAdminDataTable(Request $request): Builder
      {
           return $this->readUserRepository->getAllUserForAdminDataTable($request);
      }
 
+
+     public function createUser(){
+          
+     }
 }

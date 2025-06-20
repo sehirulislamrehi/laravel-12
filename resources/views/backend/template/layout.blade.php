@@ -26,6 +26,40 @@
     <div class="tap-top"><i data-feather="chevrons-up"></i></div>
     <!-- tap on tap ends-->
 
+    <!-- MY MODAL -->
+    <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <!-- MY MODAL END -->
+
+    <!-- MY MODAL large -->
+    <div class="modal fade bd-example-modal-lg" id="largeModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <!-- MY MODAL large END -->
+
+    <!-- MY MODAL Extra large -->
+    <div class="modal fade bd-example-modal-lg" id="extraLargeModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <!-- MY MODAL Extra large END -->
+
     <!-- page-wrapper Start-->
     <div class="page-wrapper compact-wrapper" id="pageWrapper">
 
@@ -39,56 +73,6 @@
             <!-- Page Sidebar Start-->
             @include('backend.includes.left_sidebar')
             <!-- Page Sidebar Ends-->
-
-            <!-- MY MODAL -->
-            <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-
-                    </div>
-                </div>
-            </div>
-            <!-- MY MODAL END -->
-
-            <!-- MY MODAL SMALL -->
-            <div class="modal fade" id="myModalSm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-sm" role="document">
-                    <div class="card card-default border border-0 w-100">
-                        <!-- /.card-header -->
-                        <div class="card-body w-100">
-                            <div class="modal-content">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- MY MODAL SMALL END -->
-
-            <!-- MY MODAL large -->
-            <div class="modal fade bd-example-modal-lg" id="largeModal" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-
-                    </div>
-                </div>
-            </div>
-            <!-- MY MODAL large END -->
-
-            <!-- MY MODAL Extra large -->
-            <div class="modal fade bd-example-modal-lg" id="extraLargeModal" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl" role="document">
-                    <div class="modal-content">
-
-                    </div>
-                </div>
-            </div>
-            <!-- MY MODAL Extra large END -->
 
             <div class="page-body">
                 @yield('content')
