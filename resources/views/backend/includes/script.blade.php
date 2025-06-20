@@ -9,4 +9,5 @@
 <script src="{{ asset('backend/js/sidebar-pin.js') }}"></script>
 <script src="{{ asset('backend/js/script.js') }}"></script>
 <script src="{{ asset('backend/js/theme-customizer/customizer.js') }}"></script>
+<script src="{{ asset('backend/js/modal_script.js') }}"></script>
 @yield('per_page_js')

@@ -21,7 +21,7 @@ class SubModuleSeeder extends Seeder
                 'name' => 'Users',
                 'key' => 'manage_user',
                 'position' => 1,
-                'route' => 'admin.user-module.index',
+                'route' => 'admin.user-module.user.index',
                 'module_id' => 1,
             ],
             [
@@ -29,7 +29,7 @@ class SubModuleSeeder extends Seeder
                 'name' => 'Roles',
                 'key' => 'manage_role',
                 'position' => 2,
-                'route' => 'admin.role-module.index',
+                'route' => 'admin.role-module.role.index',
                 'module_id' => 1,
             ],
 

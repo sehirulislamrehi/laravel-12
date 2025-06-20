@@ -1,11 +1,15 @@
 @extends('backend.template.layout')
 
+@section('per_page_css')
+     @include('backend.includes.components.datatables.css')
+@endsection
+
 @section('content')
 <div class="container-fluid">
      <div class="page-title">
           <div class="row">
                <div class="col-6">
-                    <h4>User Module</h4>
+                    <h5>User Module</h5>
                </div>
                <div class="col-6">
                     <ol class="breadcrumb">
@@ -27,259 +31,37 @@
           <div class="col-sm-12">
                <div class="card">
                     <div class="card-header pb-0 card-no-border">
+                         @if(can("user_index"))
+                         <div class="row">
+                              <div class="col-12 text-right">
+                                   <a class="btn btn-primary my-3 btn btn-outline-dark "
+                                        data-content=""
+                                        data-target="#largeModal"
+                                        data-toggle="modal"
+                                        style="cursor: pointer;">
+                                        Create User
+                                   </a>
+                              </div>
+                         </div>
+                         @endif
                     </div>
                     <div class="card-body">
                          <div class="table-responsive custom-scrollbar">
-                              <div id="basic-6_wrapper" class="dataTables_wrapper">
-                                   <div class="dataTables_length" id="basic-6_length"><label>Show <select name="basic-6_length" aria-controls="basic-6" class="">
-                                                  <option value="10">10</option>
-                                                  <option value="25">25</option>
-                                                  <option value="50">50</option>
-                                                  <option value="100">100</option>
-                                             </select> entries</label></div>
-                                   <div id="basic-6_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="basic-6"></label></div>
-                                   <table class="display dataTable" id="basic-6" role="grid" aria-describedby="basic-6_info" style="width: 1227px;">
-                                        <thead>
-                                             <tr role="row">
-                                                  <th rowspan="2" class="sorting_asc" tabindex="0" aria-controls="basic-6" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 131px;">Name</th>
-                                                  <th colspan="2" rowspan="1">HR Information</th>
-                                                  <th colspan="3" rowspan="1">Contact</th>
-                                             </tr>
-                                             <tr role="row">
-                                                  <th class="sorting" tabindex="0" aria-controls="basic-6" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 210px;">Position</th>
-                                                  <th class="sorting" tabindex="0" aria-controls="basic-6" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 73px;">Salary</th>
-                                                  <th class="sorting" tabindex="0" aria-controls="basic-6" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 97px;">Office</th>
-                                                  <th class="sorting" tabindex="0" aria-controls="basic-6" rowspan="1" colspan="1" aria-label="CV: activate to sort column ascending" style="width: 30px;">CV</th>
-                                                  <th class="sorting" tabindex="0" aria-controls="basic-6" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 91px;">Status</th>
-                                                  <th class="sorting" tabindex="0" aria-controls="basic-6" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending" style="width: 197px;">E-mail</th>
-                                                  <th class="sorting" tabindex="0" aria-controls="basic-6" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 60px;">Action</th>
-                                             </tr>
-                                        </thead>
-                                        <tbody>
+                              <table id="dataGrid" class="table table-bordered table-striped dataTable dtr-inline" style="width: 100%">
+                                   <thead>
+                                        <tr>
+                                             <th>#</th>
+                                             <th>Name</th>
+                                             <th>Email</th>
+                                             <th>Phone</th>
+                                             <th>Is Active</th>
+                                             <th>Action</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody class="tbody-user">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                             <tr role="row" class="odd">
-                                                  <td class="sorting_1">Airi Satou</td>
-                                                  <td>Accountant</td>
-                                                  <td>$162,700</td>
-                                                  <td>Tokyo</td>
-                                                  <td class="action"> <a class="pdf" href="https://admin.pixelstrap.net/riho/assets/pdf/sample.pdf" target="_blank"><i class="icofont icofont-file-pdf"> </i></a></td>
-                                                  <td> <span class="badge rounded-pill badge-success">hired</span></td>
-                                                  <td>a.satou@datatables.net</td>
-                                                  <td>
-                                                       <ul class="action">
-                                                            <li class="edit"> <a href="#"><i class="icon-pencil-alt"></i></a></li>
-                                                            <li class="delete"><a href="#"><i class="icon-trash"></i></a></li>
-                                                       </ul>
-                                                  </td>
-                                             </tr>
-                                             <tr role="row" class="even">
-                                                  <td class="sorting_1">Angelica Ramos</td>
-                                                  <td>Chief Executive Officer (CEO)</td>
-                                                  <td>$1,200,000</td>
-                                                  <td>London</td>
-                                                  <td class="action"> <a class="pdf" href="https://admin.pixelstrap.net/riho/assets/pdf/sample.pdf" target="_blank"><i class="icofont icofont-file-pdf"> </i></a></td>
-                                                  <td> <span class="badge rounded-pill badge-danger">Pending</span></td>
-                                                  <td>a.ramos@datatables.net</td>
-                                                  <td>
-                                                       <ul class="action">
-                                                            <li class="edit"> <a href="#"><i class="icon-pencil-alt"></i></a></li>
-                                                            <li class="delete"><a href="#"><i class="icon-trash"></i></a></li>
-                                                       </ul>
-                                                  </td>
-                                             </tr>
-                                             <tr role="row" class="odd">
-                                                  <td class="sorting_1">Ashton Cox</td>
-                                                  <td>Junior Technical Author</td>
-                                                  <td>$86,000</td>
-                                                  <td>San Francisco</td>
-                                                  <td class="action"> <a class="pdf" href="https://admin.pixelstrap.net/riho/assets/pdf/sample.pdf" target="_blank"><i class="icofont icofont-file-pdf"> </i></a></td>
-                                                  <td> <span class="badge rounded-pill badge-warning"> in process</span></td>
-                                                  <td>a.cox@datatables.net</td>
-                                                  <td>
-                                                       <ul class="action">
-                                                            <li class="edit"> <a href="#"><i class="icon-pencil-alt"></i></a></li>
-                                                            <li class="delete"><a href="#"><i class="icon-trash"></i></a></li>
-                                                       </ul>
-                                                  </td>
-                                             </tr>
-                                             <tr role="row" class="even">
-                                                  <td class="sorting_1">Bradley Greer</td>
-                                                  <td>Software Engineer</td>
-                                                  <td>$132,000</td>
-                                                  <td>London</td>
-                                                  <td class="action"> <a class="pdf" href="https://admin.pixelstrap.net/riho/assets/pdf/sample.pdf" target="_blank"><i class="icofont icofont-file-pdf"> </i></a></td>
-                                                  <td> <span class="badge rounded-pill badge-danger">Pending</span></td>
-                                                  <td>b.greer@datatables.net</td>
-                                                  <td>
-                                                       <ul class="action">
-                                                            <li class="edit"> <a href="#"><i class="icon-pencil-alt"></i></a></li>
-                                                            <li class="delete"><a href="#"><i class="icon-trash"></i></a></li>
-                                                       </ul>
-                                                  </td>
-                                             </tr>
-                                             <tr role="row" class="odd">
-                                                  <td class="sorting_1">Brenden Wagner</td>
-                                                  <td>Software Engineer</td>
-                                                  <td>$206,850</td>
-                                                  <td>San Francisco</td>
-                                                  <td class="action"> <a class="pdf" href="https://admin.pixelstrap.net/riho/assets/pdf/sample.pdf" target="_blank"><i class="icofont icofont-file-pdf"> </i></a></td>
-                                                  <td> <span class="badge rounded-pill badge-success">hired</span></td>
-                                                  <td>b.wagner@datatables.net</td>
-                                                  <td>
-                                                       <ul class="action">
-                                                            <li class="edit"> <a href="#"><i class="icon-pencil-alt"></i></a></li>
-                                                            <li class="delete"><a href="#"><i class="icon-trash"></i></a></li>
-                                                       </ul>
-                                                  </td>
-                                             </tr>
-                                             <tr role="row" class="even">
-                                                  <td class="sorting_1">Brielle Williamson</td>
-                                                  <td>Integration Specialist</td>
-                                                  <td>$372,000</td>
-                                                  <td>New York</td>
-                                                  <td class="action"> <a class="pdf" href="https://admin.pixelstrap.net/riho/assets/pdf/sample.pdf" target="_blank"><i class="icofont icofont-file-pdf"> </i></a></td>
-                                                  <td> <span class="badge rounded-pill badge-danger">Pending</span></td>
-                                                  <td>b.williamson@datatables.net</td>
-                                                  <td>
-                                                       <ul class="action">
-                                                            <li class="edit"> <a href="#"><i class="icon-pencil-alt"></i></a></li>
-                                                            <li class="delete"><a href="#"><i class="icon-trash"></i></a></li>
-                                                       </ul>
-                                                  </td>
-                                             </tr>
-                                             <tr role="row" class="odd">
-                                                  <td class="sorting_1">Bruno Nash</td>
-                                                  <td>Software Engineer</td>
-                                                  <td>$163,500</td>
-                                                  <td>London</td>
-                                                  <td class="action"> <a class="pdf" href="https://admin.pixelstrap.net/riho/assets/pdf/sample.pdf" target="_blank"><i class="icofont icofont-file-pdf"> </i></a></td>
-                                                  <td> <span class="badge rounded-pill badge-warning"> in process</span></td>
-                                                  <td>b.nash@datatables.net</td>
-                                                  <td>
-                                                       <ul class="action">
-                                                            <li class="edit"> <a href="#"><i class="icon-pencil-alt"></i></a></li>
-                                                            <li class="delete"><a href="#"><i class="icon-trash"></i></a></li>
-                                                       </ul>
-                                                  </td>
-                                             </tr>
-                                             <tr role="row" class="even">
-                                                  <td class="sorting_1">Caesar Vance</td>
-                                                  <td>Pre-Sales Support</td>
-                                                  <td>$106,450</td>
-                                                  <td>New York</td>
-                                                  <td class="action"> <a class="pdf" href="https://admin.pixelstrap.net/riho/assets/pdf/sample.pdf" target="_blank"><i class="icofont icofont-file-pdf"> </i></a></td>
-                                                  <td> <span class="badge rounded-pill badge-warning"> in process</span></td>
-                                                  <td>c.vance@datatables.net</td>
-                                                  <td>
-                                                       <ul class="action">
-                                                            <li class="edit"> <a href="#"><i class="icon-pencil-alt"></i></a></li>
-                                                            <li class="delete"><a href="#"><i class="icon-trash"></i></a></li>
-                                                       </ul>
-                                                  </td>
-                                             </tr>
-                                             <tr role="row" class="odd">
-                                                  <td class="sorting_1">Cara Stevens</td>
-                                                  <td>Sales Assistant</td>
-                                                  <td>$145,600</td>
-                                                  <td>New York</td>
-                                                  <td class="action"> <a class="pdf" href="https://admin.pixelstrap.net/riho/assets/pdf/sample.pdf" target="_blank"><i class="icofont icofont-file-pdf"> </i></a></td>
-                                                  <td> <span class="badge rounded-pill badge-warning"> in process</span></td>
-                                                  <td>c.stevens@datatables.net</td>
-                                                  <td>
-                                                       <ul class="action">
-                                                            <li class="edit"> <a href="#"><i class="icon-pencil-alt"></i></a></li>
-                                                            <li class="delete"><a href="#"><i class="icon-trash"></i></a></li>
-                                                       </ul>
-                                                  </td>
-                                             </tr>
-                                             <tr role="row" class="even">
-                                                  <td class="sorting_1">Cedric Kelly</td>
-                                                  <td>Senior Javascript Developer</td>
-                                                  <td>$433,060</td>
-                                                  <td>Edinburgh</td>
-                                                  <td class="action"> <a class="pdf" href="https://admin.pixelstrap.net/riho/assets/pdf/sample.pdf" target="_blank"><i class="icofont icofont-file-pdf"> </i></a></td>
-                                                  <td> <span class="badge rounded-pill badge-warning"> in process</span></td>
-                                                  <td>c.kelly@datatables.net</td>
-                                                  <td>
-                                                       <ul class="action">
-                                                            <li class="edit"> <a href="#"><i class="icon-pencil-alt"></i></a></li>
-                                                            <li class="delete"><a href="#"><i class="icon-trash"></i></a></li>
-                                                       </ul>
-                                                  </td>
-                                             </tr>
-                                        </tbody>
-                                        <tfoot>
-                                             <tr>
-                                                  <th rowspan="1" colspan="1">Name</th>
-                                                  <th rowspan="1" colspan="1">Position</th>
-                                                  <th rowspan="1" colspan="1">Salary</th>
-                                                  <th rowspan="1" colspan="1">Office</th>
-                                                  <th rowspan="1" colspan="1">CV </th>
-                                                  <th rowspan="1" colspan="1">Status</th>
-                                                  <th rowspan="1" colspan="1">E-mail</th>
-                                                  <th rowspan="1" colspan="1">Action</th>
-                                             </tr>
-                                        </tfoot>
-                                   </table>
-                                   <div class="dataTables_info" id="basic-6_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
-                                   <div class="dataTables_paginate paging_simple_numbers" id="basic-6_paginate"><a class="paginate_button previous disabled" aria-controls="basic-6" data-dt-idx="0" tabindex="0" id="basic-6_previous">Previous</a><span><a class="paginate_button current" aria-controls="basic-6" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="basic-6" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="basic-6" data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="basic-6" data-dt-idx="4" tabindex="0">4</a><a class="paginate_button " aria-controls="basic-6" data-dt-idx="5" tabindex="0">5</a><a class="paginate_button " aria-controls="basic-6" data-dt-idx="6" tabindex="0">6</a></span><a class="paginate_button next" aria-controls="basic-6" data-dt-idx="7" tabindex="0" id="basic-6_next">Next</a></div>
-                              </div>
+                                   </tbody>
+                              </table>
                          </div>
                     </div>
                </div>
@@ -287,4 +69,80 @@
      </div>
 </div>
 <!-- Container-fluid Ends-->
+@endsection
+
+@section('per_page_js')
+
+@include('backend.includes.components.datatables.script')
+
+<script>
+     $(function() {
+          $('#dataGrid').DataTable({
+               processing: true,
+               serverSide: true,
+               pagination: 10,
+               ajax: {
+                    url: "{{ route('admin.user-module.user.data') }}",
+                    data: function(data) {
+                         // data.business_unit_id = $('#search_business_unit_id').val();
+                         // data.service_center_id = $('#search_service_center_id').val();
+                         // data.user_group_id = $('#search_user_group_id').val();
+                         // data.othoba_department_id = $('#othoba_department_id').val();
+                         // data.agent_type_id = $('#search_agent_type_id').val();
+                         // data.othoba_delivery_channel_id = $("#search_othoba_delivery_channel_id").val();
+                         // data.thana_id = $("#search_thana_id").val();
+                         // data.role_id = $("#search_role_id").val();
+                         // data.product_category_id = $("#product_category_id").val();
+                         // data.factory_id = $("#search_factory_id").val();
+                         // data.spro_country_id = $("#search_spro_country_id").val();
+                         // data.company = $("#search_company").val();
+                    }
+               },
+               order: [
+                    [0, 'Desc']
+               ],
+               columns: [{
+                         data: 'DT_RowIndex',
+                         name: 'DT_RowIndex',
+                         orderable: false,
+                         searchable: false,
+                    },
+                    {
+                         data: 'name',
+                         name: 'name',
+                         orderable: false,
+                         searchable: true,
+
+                    },
+                    {
+                         data: 'email',
+                         name: 'email',
+                         orderable: false,
+                         searchable: true,
+
+                    },
+                    {
+                         data: 'phone',
+                         name: 'phone',
+                         orderable: false,
+                         searchable: true,
+                    },
+                    {
+                         name: 'is_active',
+                         data: 'is_active',
+                         orderable: false,
+                         searchable: false
+
+                    },
+                    {
+                         data: 'action',
+                         name: 'action',
+                         orderable: false,
+                         searchable: false
+                    }
+
+               ]
+          });
+     });
+</script>
 @endsection

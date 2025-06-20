@@ -23,4 +23,4 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/my_style.css') }}">
 
 @yield('per_page_css')
-<link rel="stylesheet" type="text/css" href="{{ asset('backend/css/vendors/datatables.css') }}">
+<!-- <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/vendors/datatables.css') }}"> -->

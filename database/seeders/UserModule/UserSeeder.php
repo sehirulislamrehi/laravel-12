@@ -14,6 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        DB::statement("DELETE FROM users where id = 1");
         DB::table('users')->insert([
             [
                 "id" => 1,
@@ -25,7 +26,18 @@ class UserSeeder extends Seeder
                 "is_active" => true,
                 "created_at" => Carbon::now(),
                 "updated_at" => Carbon::now()
-            ]
+            ],
+            [
+                "id" => 2,
+                "name" => "Super Admin",
+                "email" => "superadmin1@gmail.com",
+                "phone" => "12345678901",
+                "password" => Hash::make("123456"),
+                "is_super_admin" => true,
+                "is_active" => true,
+                "created_at" => Carbon::now(),
+                "updated_at" => Carbon::now()
+            ],
         ]);
     }
 }
