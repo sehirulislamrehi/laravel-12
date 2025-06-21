@@ -73,4 +73,13 @@ class UserService
           ];
           return $this->writeUserRepository->resetPassword($user, $data);
      }
+
+     public function updatePermission($user, $request)
+     {
+          $data = [
+               'permissions' => $request->input('permissions',[])
+          ];
+
+          
+     }
 }

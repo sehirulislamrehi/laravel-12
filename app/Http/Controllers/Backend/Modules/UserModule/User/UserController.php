@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\UserModule\User\CreateUserRequest;
 use App\Http\Requests\Backend\UserModule\User\UpdateUserRequest;
 use App\Services\Backend\Datatables\Modules\UserModule\User\UserDatatableService;
+use App\Services\Backend\Modules\UserModule\Module\ModuleService;
 use App\Services\Backend\Modules\UserModule\Role\RoleService;
 use App\Services\Backend\Modules\UserModule\User\UserService;
 use App\Traits\Modules\ApiResponseTrait;
@@ -29,7 +30,8 @@ class UserController extends Controller
     public function __construct(
         protected UserService $userService,
         protected UserDatatableService $userDatatableService,
-        protected RoleService $roleService
+        protected RoleService $roleService,
+        protected ModuleService $moduleService
     ) {}
 
     /**
@@ -68,7 +70,7 @@ class UserController extends Controller
             if (can('manage_user')) {
                 $auth = auth('web')->user();
                 $users = $this->userService->getAllUserForAdminDataTable($request, $auth);
-                return $this->userDatatableService->makeTable($users, $request);
+                return $this->userDatatableService->makeTable($users, $auth);
             } else {
                 return $this->response(
                     status: 'warning',
@@ -284,6 +286,82 @@ class UserController extends Controller
                     status: 'warning',
                     data: [],
                     message: 'You do not have permission to reset password.',
+                    code: 403
+                );
+            }
+        } catch (Exception $e) {
+            return $this->response(
+                status: 'error',
+                data: [],
+                message: $e->getMessage(),
+                code: 500
+            );
+        }
+    }
+
+    public function permissionModal($id): View
+    {
+        try {
+            $auth = auth('web')->user();
+            if ($auth->is_super_admin) {
+                $user = $this->userService->getUserById($id);
+                if (!$user) {
+                    return view('errors.modals.404');
+                }
+                $modules = $this->moduleService->getAllModule();
+                return view('backend.modules.user_module.user.modals.permission', [
+                    'user' => $user,
+                    'modules' => $modules
+                ]);
+            } else {
+                return view('errors.modals.403');
+            }
+        } catch (Exception $e) {
+            return view('errors.modals.500', [
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
+
+    public function permission(Request $request, $id): JsonResponse
+    {
+        try {
+
+            $auth = auth('web')->user();
+            if ($auth->is_super_admin) {
+
+
+                if ($request['permissions']) {
+                    $user = $this->userService->getUserById($id);
+                    if (!$user) {
+                        return $this->response(
+                            status: 'warning',
+                            data: [],
+                            message: 'User not found.'
+                        );
+                    }
+
+                    $this->userService->updatePermission($user, $request);
+
+                    return $this->response(
+                        status: 'success',
+                        data: [],
+                        message: 'User permission updated successfully.',
+                        tableName: '#dataGrid'
+                    );
+                } else {
+                    return $this->response(
+                        status: 'warning',
+                        data: [],
+                        message: 'Permissions is missing.'
+                    );
+                }
+            } else {
+                return $this->response(
+                    status: 'error',
+                    data: [],
+                    message: 'Unauthorized action.',
                     code: 403
                 );
             }
