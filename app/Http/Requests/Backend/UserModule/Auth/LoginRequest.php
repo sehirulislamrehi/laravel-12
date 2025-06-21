@@ -26,4 +26,13 @@ class LoginRequest extends FormRequest
             "password" => "required|string|min:6|max:100",
         ];
     }
+
+    protected function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
+    {
+        throw new \Illuminate\Validation\ValidationException($validator, response()->json([
+            'status' => 'warning',
+            'message' => $validator->errors()->first(),
+            'data' => [],
+        ], 200));
+    }
 }

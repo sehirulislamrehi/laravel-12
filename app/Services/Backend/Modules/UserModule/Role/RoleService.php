@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Services\Backend\Modules\UserModule\Role;
 
@@ -52,7 +53,7 @@ class RoleService
       * @param int $id
       * @return Role
       */
-     public function getRoleById($id): Role
+     public function getRoleById(int $id): Role
      {
           return $this->roleRepository->getRoleById($id);
      }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Services\Backend\Datatables\Modules\UserModule\Role;
 
@@ -8,7 +9,7 @@ use Yajra\DataTables\Facades\DataTables;
 class RoleDatatableService
 {
 
-     public function makeTable($data): JsonResponse
+     public function makeTable(object $data): JsonResponse
      {
           return DataTables::of($data)
                ->rawColumns(['action', 'is_active'])

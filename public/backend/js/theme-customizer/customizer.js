@@ -111,29 +111,7 @@
                               </div>
                          </li>
                     </ul>
-                    <h5>Sidebar Icon</h5>
-                    <ul class="sidebar-setting layout-grid">
-                         <li class="active" data-attr="stroke-svg">
-                              <div class="header bg-light">
-                                   <ul>
-                                        <li></li>
-                                        <li></li>
-                                        <li></li>
-                                   </ul>
-                              </div>
-                              <div class="body bg-light"><span class="badge badge-primary">Stroke</span></div>
-                         </li>
-                         <li data-attr="fill-svg">
-                              <div class="header bg-light">
-                                   <ul>
-                                        <li></li>
-                                        <li></li>
-                                        <li></li>
-                                   </ul>
-                              </div>
-                              <div class="body bg-light"><span class="badge badge-primary">Fill</span></div>
-                         </li>
-                    </ul>
+                    
                     <h5>Unlimited Color</h5>
                     <ul class="layout-grid unlimited-color-layout">
                          <input id="ColorPicker1" type="color" value="#006666" name="Background"><input
@@ -163,75 +141,7 @@
                               <div></div>
                          </li>
                     </ul>
-                    <h5>Dark Layout</h5>
-                    <ul class="layout-grid customizer-color dark">
-                         <li class="color-layout" data-attr="color-1" data-primary="#006666" data-secondary="#FE6A49">
-                              <div></div>
-                         </li>
-                         <li class="color-layout" data-attr="color-2" data-primary="#1D5B79" data-secondary="#468B97">
-                              <div></div>
-                         </li>
-                         <li class="color-layout" data-attr="color-3" data-primary="#4A55A2" data-secondary="#F0A360">
-                              <div></div>
-                         </li>
-                         <li class="color-layout" data-attr="color-4" data-primary="#167A93" data-secondary="#eeb82f">
-                              <div></div>
-                         </li>
-                         <li class="color-layout" data-attr="color-5" data-primary="#423964" data-secondary="#897D5e">
-                              <div></div>
-                         </li>
-                         <li class="color-layout" data-attr="color-6" data-primary="#4b2a4b" data-secondary="#FE7088">
-                              <div></div>
-                         </li>
-                    </ul>
-                    <h5>Mix Layout</h5>
-                    <ul class="layout-grid customizer-mix">
-                         <li class="color-layout active" data-attr="light-only">
-                              <div class="header bg-light">
-                                   <ul>
-                                        <li></li>
-                                        <li></li>
-                                        <li></li>
-                                   </ul>
-                              </div>
-                              <div class="body">
-                                   <ul>
-                                        <li class="bg-light sidebar"></li>
-                                        <li class="bg-light body"></li>
-                                   </ul>
-                              </div>
-                         </li>
-                         <li class="color-layout" data-attr="dark-sidebar">
-                              <div class="header bg-light">
-                                   <ul>
-                                        <li></li>
-                                        <li></li>
-                                        <li></li>
-                                   </ul>
-                              </div>
-                              <div class="body">
-                                   <ul>
-                                        <li class="bg-dark sidebar"></li>
-                                        <li class="bg-light body"></li>
-                                   </ul>
-                              </div>
-                         </li>
-                         <li class="color-layout" data-attr="dark-only">
-                              <div class="header bg-dark">
-                                   <ul>
-                                        <li></li>
-                                        <li></li>
-                                        <li></li>
-                                   </ul>
-                              </div>
-                              <div class="body">
-                                   <ul>
-                                        <li class="bg-dark sidebar"></li>
-                                        <li class="bg-dark body"></li>
-                                   </ul>
-                              </div>
-                         </li>
-                    </ul>
+                    
                </div>
     `
     ).appendTo($("body"));

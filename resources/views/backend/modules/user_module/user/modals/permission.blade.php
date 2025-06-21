@@ -45,7 +45,7 @@
      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-     <form action="{{ route('admin.user-module.user.permission') }}" method="POST" class="ajax-form">
+     <form action="{{ route('admin.user-module.user.permission', $user->id) }}" method="POST" class="ajax-form">
           @csrf
 
           <div class="row">
@@ -55,10 +55,17 @@
                     <label for="role-status">Permissions</label><span class="text-danger">*</span>
                     <div class="form-group row">
                          @foreach ($modules as $module)
+                         @php
+                              $modulePermissionId = $module->permissions->where('key', $module->key)->first()->id;
+                         @endphp
                          <div class="col-12 col-md-3 my-2">
                               <div class="permission_block p-1">
                                    <label class="module-header mb-0 d-flex align-items-center">
-                                        <input type="checkbox" class="module_check me-2" name="permissions[]" value="{{ $module->permissions->where('key', $module->key)->first()->id }}" />
+                                        <input type="checkbox" class="module_check me-2" name="permissions[]" value="{{ $module->permissions->where('key', $module->key)->first()->id }}"
+                                        @if ($user->permissions->contains('id', $modulePermissionId))
+                                             checked
+                                        @endif
+                                        />
                                         <span>{{ $module->name }}</span>
                                    </label>
                                    <ul class="sub_module_block mt-2 ps-3">
@@ -66,7 +73,9 @@
                                         @if ($permission->key != $module->key)
                                         <li class="sub-permission-item">
                                              <label class="mb-0 d-flex align-items-center">
-                                                  <input type="checkbox" class="sub_module_check me-2" name="permissions[]" disabled value="{{ $permission->id }}" />
+                                                  <input type="checkbox" class="sub_module_check me-2" name="permissions[]" value="{{ $permission->id }}"
+                                                  @if ($user->permissions->contains('id', $permission->id)) checked @endif
+                                                  />
                                                   <span>{{ $permission->display_name }}</span>
                                              </label>
                                         </li>

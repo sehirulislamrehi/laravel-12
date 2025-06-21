@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Repositories\Modules\UserModule\User;
 
@@ -13,7 +14,7 @@ class WriteUserRepository implements WriteUserInterface
           return User::create($data);
      }
 
-     public function updateUser($user, array $data): User
+     public function updateUser(User $user, array $data): User
      {
           $user->update($data);
           return $user;
@@ -23,5 +24,10 @@ class WriteUserRepository implements WriteUserInterface
      {
           $user->password = $data['password'];
           return $user->save();
+     }
+
+     public function updatePermission(User $user, array $data): array
+     {
+          return $user->permissions()->sync($data['permissions']);
      }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Interfaces\Modules\UserModule\Role;
 
 use App\Models\UserModule\Role;
@@ -11,8 +13,8 @@ interface RoleInterface
      
      public function getAllRoleForAdminDataTable(): Builder;
      public function create(array $data): Role;
-     public function update($role, array $data): Role;
-     public function getRoleById($id): Role;
-     public function getAllRoles($status): Collection;
+     public function update(Role $role, array $data): Role;
+     public function getRoleById(int $id): Role;
+     public function getAllRoles(string $status): Collection;
 
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repositories\Modules\UserModule\Role;
 
 use App\Interfaces\Modules\UserModule\Role\RoleInterface;
@@ -29,12 +31,12 @@ class RoleRepository implements RoleInterface
           });
      }
 
-     public function getRoleById($id): Role
+     public function getRoleById(int $id): Role
      {
           return Role::where("id", $id)->with("permissions")->first();
      }
 
-     public function update($role, array $data): Role
+     public function update(Role $role, array $data): Role
      {
           return DB::transaction(function () use ($role, $data) {
                $role->update($data);
@@ -52,7 +54,7 @@ class RoleRepository implements RoleInterface
       * @param string $status
       * @return Collection
       */
-     public function getAllRoles($status): Collection
+     public function getAllRoles(string $status): Collection
      {
           $query =  Role::select("id", "name");
 

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Services\Backend\Modules\UserModule\User;
 
@@ -54,7 +55,7 @@ class UserService
       * @param CreateUserRequest $request
       * @return mixed
       */
-     public function getUserById($id): User
+     public function getUserById(int $id): User
      {
           return $this->readUserRepository->getUserById($id);
      }
@@ -74,12 +75,14 @@ class UserService
           return $this->writeUserRepository->resetPassword($user, $data);
      }
 
-     public function updatePermission($user, $request)
+
+     public function updatePermission(object $user, Request $request): array
      {
           $data = [
                'permissions' => $request->input('permissions',[])
           ];
 
-          
+          return $this->writeUserRepository->updatePermission($user, $data);
+
      }
 }

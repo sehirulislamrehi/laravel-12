@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Backend\Modules\UserModule\User;
 
 use App\Http\Controllers\Controller;
@@ -155,7 +157,7 @@ class UserController extends Controller
      * @param int $id
      * @return View
      */
-    public function updateModal($id): View
+    public function updateModal(int $id): View
     {
         try {
             if (can('manage_user')) {
@@ -185,7 +187,7 @@ class UserController extends Controller
      * @param UpdateUserRequest $request
      * @return JsonResponse
      */
-    public function update($id, UpdateUserRequest $request): JsonResponse
+    public function update(int $id, UpdateUserRequest $request): JsonResponse
     {
         try {
             if (can('manage_user')) {
@@ -225,7 +227,7 @@ class UserController extends Controller
     }
 
 
-    public function resetPasswordModal($id): View
+    public function resetPasswordModal(int $id): View
     {
         try {
             if (can('manage_user')) {
@@ -247,7 +249,7 @@ class UserController extends Controller
     }
 
 
-    public function resetPassword($id, Request $request): JsonResponse
+    public function resetPassword(int $id, Request $request): JsonResponse
     {
         try {
             if (can('reset_password')) {
@@ -299,7 +301,7 @@ class UserController extends Controller
         }
     }
 
-    public function permissionModal($id): View
+    public function permissionModal(int $id): View
     {
         try {
             $auth = auth('web')->user();
@@ -324,39 +326,29 @@ class UserController extends Controller
     }
 
 
-    public function permission(Request $request, $id): JsonResponse
+    public function permission(Request $request, int $id): JsonResponse
     {
         try {
 
             $auth = auth('web')->user();
             if ($auth->is_super_admin) {
-
-
-                if ($request['permissions']) {
-                    $user = $this->userService->getUserById($id);
-                    if (!$user) {
-                        return $this->response(
-                            status: 'warning',
-                            data: [],
-                            message: 'User not found.'
-                        );
-                    }
-
-                    $this->userService->updatePermission($user, $request);
-
-                    return $this->response(
-                        status: 'success',
-                        data: [],
-                        message: 'User permission updated successfully.',
-                        tableName: '#dataGrid'
-                    );
-                } else {
+                $user = $this->userService->getUserById($id);
+                if (!$user) {
                     return $this->response(
                         status: 'warning',
                         data: [],
-                        message: 'Permissions is missing.'
+                        message: 'User not found.'
                     );
                 }
+
+                $this->userService->updatePermission($user, $request);
+
+                return $this->response(
+                    status: 'success',
+                    data: [],
+                    message: 'User permission updated successfully.',
+                    tableName: '#dataGrid'
+                );
             } else {
                 return $this->response(
                     status: 'error',

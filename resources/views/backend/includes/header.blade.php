@@ -34,7 +34,7 @@
                                       </div>
                                  </div>
                                  <ul class="profile-dropdown onhover-show-div">
-                                      <li><a href="user-profile.html"><i data-feather="user"></i><span>My Profile</span></a></li>
+                                      <!-- <li><a href="user-profile.html"><i data-feather="user"></i><span>My Profile</span></a></li> -->
                                       <li>
                                            <form action="{{ route('admin.do.logout') }}" method="POST">
                                                 @csrf

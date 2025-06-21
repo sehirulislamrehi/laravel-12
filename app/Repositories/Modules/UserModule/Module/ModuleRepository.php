@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repositories\Modules\UserModule\Module;
 
 use App\Interfaces\Modules\UserModule\Module\ModuleInterface;

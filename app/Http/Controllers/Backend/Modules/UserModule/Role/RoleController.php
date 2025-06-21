@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Backend\Modules\UserModule\Role;
 
 use App\Http\Controllers\Controller;
@@ -160,7 +162,7 @@ class RoleController extends Controller
      * @param int $id
      * @return View
      */
-    public function updateModal($id): View
+    public function updateModal(int $id): View
     {
         try {
             if (can("manage_role")) {
@@ -192,7 +194,7 @@ class RoleController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    public function update(Request $request, $id): JsonResponse
+    public function update(Request $request, int $id): JsonResponse
     {
         try {
             if (can('manage_role')) {
