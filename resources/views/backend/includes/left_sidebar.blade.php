@@ -60,7 +60,7 @@
                     >
                         
                         @foreach($module->subModule->sortBy('position', false) as $subModule)
-                        @if(can($module->key))
+                        @if(can($subModule->key))
                         <li><a href="{{ route($subModule->route) }}" >{{ $subModule->name }} </a></li>
                         @endif
                         @endforeach

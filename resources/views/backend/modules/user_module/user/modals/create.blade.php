@@ -38,8 +38,18 @@
                     <input type="password" name="password_confirmation" class="form-control" placeholder="******" required>
                </div>
 
+               <!-- Role -->
+               <div class="col-md-12 form-group">
+                    <label>Role</label>
+                    <select name="role_id" class="form-control chosen">
+                         @foreach ($roles as $role)
+                              <option value="{{ $role->id }}">{{ $role->name }}</option>
+                         @endforeach
+                    </select>
+               </div>
+
                <div class="col-md-12 form-group text-right">
-                    <button type="submit" class="btn btn-sm btn-success">Submit</button>
+                    <button type="submit" class="btn btn-sm btn-success">Create</button>
                </div>
 
           </div>
@@ -50,3 +60,5 @@
      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
      <button type="button" class="btn btn-primary">Save changes</button>
 </div> -->
+
+@include('backend.includes.components.chosen.chosen')

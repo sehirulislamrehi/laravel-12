@@ -5,6 +5,7 @@ namespace App\Repositories\Modules\UserModule\Role;
 use App\Interfaces\Modules\UserModule\Role\RoleInterface;
 use App\Models\UserModule\Role;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 
 class RoleRepository implements RoleInterface
@@ -13,7 +14,7 @@ class RoleRepository implements RoleInterface
      public function getAllRoleForAdminDataTable(): Builder
      {
           $query = Role::query();
-          return $query;
+          return $query->orderBy("id","desc");
      }
 
      public function create(array $data): Role
@@ -43,5 +44,25 @@ class RoleRepository implements RoleInterface
 
                return $role;
           });
+     }
+
+     /**
+      * Get all roles based on their status.
+      *
+      * @param string $status
+      * @return Collection
+      */
+     public function getAllRoles($status): Collection
+     {
+          $query =  Role::select("id", "name");
+
+          if ($status == "active") {
+               $query->where('is_active', true);
+          }
+          if ($status == "inactive") {
+               $query->where('is_active', false);
+          }
+
+          return $query->get();
      }
 }

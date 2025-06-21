@@ -23,9 +23,11 @@ class RoleDatatableService
                ->addColumn('action', function ($data) {
                     $html = '';
 
-                    $html .= '<button type="button" data-content="'. route('admin.user-module.role.update.modal', $data->id) .'" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#extraLargeModal">
-                            <i class="fa fa-edit">
-                        </button>';
+                    if(can('manage_role')) {
+                         $html .= '<button type="button" data-content="' . route('admin.user-module.role.update.modal', $data->id) . '" class="action-btn btn btn-primary" data-bs-toggle="modal" data-bs-target="#extraLargeModal">
+                             <i class="fa fa-edit">
+                         </button>';    
+                    }
 
                     return $html;
                })

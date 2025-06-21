@@ -78,3 +78,22 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
 button{
     border-radius: 30px!important;
 }
+
+body.dark-only .chosen-container-single .chosen-single{
+    background: linear-gradient(#000000 20%, #000000 50%, #000000 52%, #000000 100%);
+}
+body.dark-only .chosen-container .chosen-drop{
+    background: #000;
+}
+body.dark-only .permission_block,
+body.dark-only .module-header{
+    background: #000000;
+}
+
+.action-btn{
+    margin-right: 5px;
+}
+
+body.dark-only .form-control{
+    color: white;
+}

@@ -11,4 +11,6 @@ Route::prefix('user')->name('user.')->group(function () {
      Route::post("create", [UserController::class, 'create'])->name("create");
      Route::get("update/{id}", [UserController::class, 'updateModal'])->name("update.modal");
      Route::post("update/{id}", [UserController::class, 'update'])->name("update");
+     Route::get("reset-password/{id}", [UserController::class, 'resetPasswordModal'])->name("reset.password.modal");
+     Route::post("reset-password/{id}", [UserController::class, 'resetPassword'])->name("reset.password");
 });

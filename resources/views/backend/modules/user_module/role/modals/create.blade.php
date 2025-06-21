@@ -94,7 +94,6 @@
      </form>
 </div>
 
-<script src="{{ asset('backend/js/ajax_form_submit.js') }}"></script>
 <script>
      $(".module_check").click(function(e) {
           let $this = $(this);

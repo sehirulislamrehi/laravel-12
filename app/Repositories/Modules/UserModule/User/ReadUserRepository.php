@@ -21,9 +21,36 @@ class ReadUserRepository implements ReadUserInterface{
           return User::where('email', $email)->first();
      }
 
-     public function getAllUserForAdminDataTable(Request $request): Builder
+     /**
+      * Get user by ID.
+      *
+      * @param int $id
+      * @return User
+      */
+     public function getAllUserForAdminDataTable(Request $request, $auth = null): Builder
      {
+          
           $query = User::query();
-          return $query;
+          $query->where("is_super_admin", false);
+
+          if($auth){
+               $query->where('id', '!=', $auth->id);
+          }
+
+          return $query->orderBy("id","desc");
      }
+
+
+     /**
+      * Get user by ID.
+      *
+      * @param int $id
+      * @return User
+      */
+     public function getUserById(int $id): User
+     {
+          return User::where("id",$id)->first();
+     }
+
+     
 }

@@ -5,6 +5,7 @@ namespace App\Services\Backend\Modules\UserModule\Role;
 use App\Interfaces\Modules\UserModule\Role\RoleInterface;
 use App\Models\UserModule\Role;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -73,5 +74,16 @@ class RoleService
           $this->roleRepository->update($role, $data);
           Cache::forget("role_{$role->id}_permissions");
           return $role;
+     }
+
+     /**
+      * Get all roles based on status.
+      *
+      * @param string $status
+      * @return Collection
+      */
+     public function getAllRoles($status): Collection
+     {
+          return $this->roleRepository->getAllRoles($status);
      }
 }

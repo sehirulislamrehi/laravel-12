@@ -16,9 +16,13 @@ function can(string $permission): bool
         return true;
     }
 
+    if (!$user->role_id) {
+        return false;
+    }
+
     $cacheKeyForRolePermission = "role_{$user->role_id}_permissions";
     $rolePermissions = Cache::rememberForever($cacheKeyForRolePermission, function () use ($user) {
-        return collect($user->role->permission);
+        return collect($user->role->permissions);
     });
 
     // Check role permissions first

@@ -156,11 +156,11 @@
       $("body").addClass("light");
     }
   }); 
-  // $("body").addClass(
-  //   localStorage.getItem("mode")
-  //     ? localStorage.getItem("mode")
-  //     : "light"
-  // ); 
+  $("body").addClass(
+    localStorage.getItem("mode")
+      ? localStorage.getItem("mode")
+      : "light"
+  ); 
   $(".mode").addClass(
     localStorage.getItem("mode") === "dark-only" ? "active" : " "
   );

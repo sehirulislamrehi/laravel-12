@@ -29,9 +29,18 @@ class UserDatatableService
             ->addColumn('action', function ($data) {
                 $html = '';
 
-                $html .= '<button type="button" data-content="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                            <i class="fa fa-edit">
+                if (can('manage_user')) {
+                    $html .= '<button type="button" data-content="' . route('admin.user-module.user.update.modal', $data->id) . '" class="action-btn btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                            <i class="fa fa-edit"></i>
                         </button>';
+                }
+
+                if(can("reset_password")){
+
+                    $html .= '<button type="button" data-content="' . route('admin.user-module.user.reset.password.modal', $data->id) . '" class="action-btn btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal">
+                            <i class="fa fa-key"></i>
+                        </button>';
+                }
 
                 return $html;
             })

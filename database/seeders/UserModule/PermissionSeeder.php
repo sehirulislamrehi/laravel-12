@@ -29,8 +29,8 @@ class PermissionSeeder extends Seeder
             ],
             [
                 'id' => 3,
-                'key' => 'manage_role',
-                'display_name' => 'Manage Role',
+                'key' => 'reset_password',
+                'display_name' => 'Reset Password',
                 'module_id' => 1,
             ],
         ]);
