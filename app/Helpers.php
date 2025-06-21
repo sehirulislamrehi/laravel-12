@@ -38,5 +38,5 @@ function can(string $permission): bool
             ->toArray();
     });
 
-    return in_array($permission, $userPermissions, true);
+    return in_array($permission, $userPermissions, false);
 }

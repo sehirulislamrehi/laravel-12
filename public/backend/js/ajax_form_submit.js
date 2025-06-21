@@ -55,7 +55,7 @@ function successResponseProcess(response) {
 
      swal("",response.message,response.status);
 
-     let tableName = response.table
+     let tableName = response.tableName
 
      if (tableName && $(tableName).length && $.fn.DataTable.isDataTable(tableName)) {
           let table = $(tableName).DataTable();

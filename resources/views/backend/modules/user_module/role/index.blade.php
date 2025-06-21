@@ -68,6 +68,7 @@
 @section('per_page_js')
 
 @include('backend.includes.components.datatables.script')
+<script src="{{ asset('backend/js/sweet-alert/sweetalert.min.js') }}"></script>
 
 <script>
      $(function() {

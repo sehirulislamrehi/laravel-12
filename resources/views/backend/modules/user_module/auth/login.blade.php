@@ -80,7 +80,6 @@
           <script src="{{ asset('backend/js/jquery.min.js') }}"></script>
           <script src="{{ asset('backend/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
           <script src="{{ asset('backend/js/script.js') }}"></script>
-          <script src="{{ asset('backend/js/sweet-alert/app.js') }}"></script>
           <script src="{{ asset('backend/js/sweet-alert/sweetalert.min.js') }}"></script>
           <script src="{{ asset('backend/js/ajax_form_submit.js') }}"></script>
      </div>

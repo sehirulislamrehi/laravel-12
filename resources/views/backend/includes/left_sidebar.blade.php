@@ -61,7 +61,7 @@
                         
                         @foreach($module->subModule->sortBy('position', false) as $subModule)
                         @if(can($module->key))
-                        <li><a href="{{ route($subModule->route) }}" @if(Route::currentRouteName() == $subModule->route) style="color: white" @endif >{{ $subModule->name }} </a></li>
+                        <li><a href="{{ route($subModule->route) }}" >{{ $subModule->name }} </a></li>
                         @endif
                         @endforeach
                     </ul>

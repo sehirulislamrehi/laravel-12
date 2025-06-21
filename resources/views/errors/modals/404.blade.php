@@ -1,5 +1,4 @@
 <div class="modal-header">
-     <h6 class="modal-title" id="exampleModalLabel">404</h6>
      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
@@ -7,7 +6,8 @@
           <div class="col-md-12">
                <div class="card-body">
                     <div class="mb-5 text-center">
-                         <h1 class="error-header">Not found</h1>
+                         <h1 class="error-header">404</h1>
+                         <h4 class="error-header">Not found</h4>
                     </div>
                     <p class="card-text text-danger text-center font-weight-bold">{{ $message ?? ''}}</p>
                </div>

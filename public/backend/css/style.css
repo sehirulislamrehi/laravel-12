@@ -7242,9 +7242,7 @@ div .action .delete i {
   width: calc(100% - 1px);
   padding: 0;
 }
-.dataTables_wrapper.no-footer .dataTables_scrollBody {
-  border-bottom: 1px solid #ecf3fa;
-}
+
 .dataTables_wrapper .dt-buttons .btn {
   border-radius: 0.25rem !important;
 }
@@ -8137,9 +8135,6 @@ btn-group .dropdown-wrapper .input-group .input-group-text {
   border-radius: 4px;
 }
 
-input {
-  cursor: pointer;
-}
 
 textarea {
   resize: vertical;
@@ -10781,7 +10776,7 @@ textarea {
           justify-content: center;
   position: fixed;
   background-color: #fff;
-  z-index: 11;
+  z-index: 9999;
   top: 0;
   /* opacity: 0.8; */
 }
@@ -42948,7 +42943,7 @@ table.table-bordered thead tr th p {
   content: "";
   width: 5px;
   height: 5px;
-  top: 50%;
+  top: 55%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   left: 32px;
