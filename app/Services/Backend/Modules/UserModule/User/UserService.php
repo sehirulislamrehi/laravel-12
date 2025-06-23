@@ -61,13 +61,13 @@ class UserService
      }
 
 
-     public function updateUser($user, UpdateUserRequest $request): User
+     public function updateUser(User $user, UpdateUserRequest $request): User
      {
           $updateUserDTO = UpdateUserDTO::fromRequest($request);
           return $this->writeUserRepository->updateUser($user, $updateUserDTO->toArray());
      }
 
-     public function resetPassword($user, $request): bool
+     public function resetPassword(User $user, Request $request): bool
      {
           $data = [
                'password' => Hash::make($request->password)

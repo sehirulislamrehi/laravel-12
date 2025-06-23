@@ -65,7 +65,7 @@ class RoleService
       * @param Request $request
       * @return Role
       */
-     public function update($role, Request $request): Role
+     public function update(Role $role, Request $request): Role
      {
           $data = (array) [
                'name' => $request->input('name'),
@@ -83,7 +83,7 @@ class RoleService
       * @param string $status
       * @return Collection
       */
-     public function getAllRoles($status): Collection
+     public function getAllRoles(string $status): Collection
      {
           return $this->roleRepository->getAllRoles($status);
      }
