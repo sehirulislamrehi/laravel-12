@@ -3726,7 +3726,7 @@ textarea.form-control-lg {
   flex-wrap: wrap;
   padding-left: 0;
   margin-bottom: 0;
-  list-style: none;
+  list-style: none
 }
 
 .nav-link {
@@ -3734,7 +3734,7 @@ textarea.form-control-lg {
   padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
   font-size: var(--bs-nav-link-font-size);
   font-weight: var(--bs-nav-link-font-weight);
-  color: var(--bs-nav-link-color);
+  color: var(--theme-deafult);
   text-decoration: none;
   background: none;
   border: 0;

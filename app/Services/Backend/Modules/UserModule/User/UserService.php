@@ -31,7 +31,7 @@ class UserService
       * @param string $email
       * @return User|null
       */
-     public function getAllUserForAdminDataTable(Request $request, $auth = null): Builder
+     public function getAllUserForAdminDataTable(Request $request, ?object $auth = null): Builder
      {
           return $this->readUserRepository->getAllUserForAdminDataTable($request, $auth);
      }

@@ -11,6 +11,6 @@ use Illuminate\Http\Request;
 interface ReadUserInterface
 {
      public function getUserByEmail(string $email): ?User;
-     public function getAllUserForAdminDataTable(Request $request, $auth = null): Builder;
+     public function getAllUserForAdminDataTable(Request $request, ?object $auth = null): Builder;
      public function getUserById(int $id): User;
 }

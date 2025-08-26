@@ -1,16 +1,26 @@
-.sidebar-link i{
-     color: white;
+.sidebar-link i {
+    color: white;
 }
 
-p,li,a,button,span,strong,td,th, label{
-     font-size: 11px!important;
+p,
+li,
+a,
+button,
+span,
+strong,
+td,
+th,
+label {
+    font-size: 11px !important;
 }
 
-table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td{
-     border: none;
+table.table-bordered.dataTable tbody th,
+table.table-bordered.dataTable tbody td {
+    border: none;
 }
-.dataTables_wrapper table.dataTable thead th, .dataTables_wrapper table.dataTable thead td{
-     border: none;
+.dataTables_wrapper table.dataTable thead th,
+.dataTables_wrapper table.dataTable thead td {
+    border: none;
 }
 
 .dataTables_paginate ul.pagination {
@@ -47,12 +57,12 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
 
 .dataTables_paginate ul.pagination li.page-item.active {
     background-color: var(--color-primary);
-    border-color: var(--color-primary);
+    border-color: var(--theme-secondary);
 }
 
 .dataTables_paginate ul.pagination li.page-item.active a.page-link {
     color: white;
-    background: #000000;
+    background: var(--theme-secondary) !important;
 }
 
 .dataTables_paginate ul.pagination li.page-item.disabled a.page-link {
@@ -61,39 +71,56 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
 }
 
 .dataTables_paginate ul.pagination li.page-item:not(.disabled):hover {
+    border-color: var(--theme-secondary);
     background-color: #ddd;
 }
 
-.dataTables_paginate ul.pagination li.page-item:not(.disabled):hover a.page-link {
+.dataTables_paginate
+    ul.pagination
+    li.page-item:not(.disabled):hover
+    a.page-link {
     color: white;
-    font-weight: 600;
     text-shadow: none;
 }
-.form-group{
+.form-group {
     margin-bottom: 15px;
 }
-.form-control{
+.form-control {
     font-size: 12px;
 }
-button{
-    border-radius: 30px!important;
+button {
+    border-radius: 30px !important;
 }
-
-body.dark-only .chosen-container-single .chosen-single{
-    background: linear-gradient(#000000 20%, #000000 50%, #000000 52%, #000000 100%);
+body.dark-only p,
+body.dark-only span,
+body.dark-only label,
+body.dark-only strong,
+body.dark-only small{
+    color: white;
 }
-body.dark-only .chosen-container .chosen-drop{
+body.dark-only .chosen-container-single .chosen-single {
+    background: linear-gradient(
+        #000000 20%,
+        #000000 50%,
+        #000000 52%,
+        #000000 100%
+    );
+}
+body.dark-only .chosen-container .chosen-drop {
     background: #000;
 }
 body.dark-only .permission_block,
-body.dark-only .module-header{
+body.dark-only .module-header {
     background: #000000;
 }
 
-.action-btn{
+.action-btn {
     margin-right: 5px;
 }
 
-body.dark-only .form-control{
+body.dark-only .form-control {
     color: white;
+}
+div.dataTables_wrapper div.dataTables_paginate {
+    border: none;
 }

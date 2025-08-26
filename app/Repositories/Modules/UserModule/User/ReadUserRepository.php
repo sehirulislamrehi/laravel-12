@@ -28,7 +28,7 @@ class ReadUserRepository implements ReadUserInterface{
       * @param int $id
       * @return User
       */
-     public function getAllUserForAdminDataTable(Request $request, $auth = null): Builder
+     public function getAllUserForAdminDataTable(Request $request, ?object $auth = null): Builder
      {
           
           $query = User::query();
